@@ -1,0 +1,500 @@
+/* ═══════════════════════════════════════════════════════════════
+   MOVIE DETAILS PAGE
+   ═══════════════════════════════════════════════════════════════ */
+
+.md-page {
+  min-height: 100vh;
+  background: #050508;
+  color: #f0f2f8;
+}
+
+/* ── Back button ────────────────────────────────────────────── */
+.md-back-wrap {
+  padding: 20px 48px 0;
+}
+
+.md-back-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(240,242,248,0.65);
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.md-back-btn:hover {
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+  border-color: rgba(255,255,255,0.28);
+}
+
+/* ── Hero section ───────────────────────────────────────────── */
+.md-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 48px 56px;
+}
+
+/* Blurred backdrop */
+.md-backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  filter: blur(60px) saturate(0.6);
+  transform: scale(1.1);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.md-backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5,5,8,0.55) 0%,
+    rgba(5,5,8,0.82) 60%,
+    #050508 100%
+  );
+  z-index: 1;
+}
+
+.md-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Poster ─────────────────────────────────────────────────── */
+.md-poster-wrap {
+  flex-shrink: 0;
+  width: 260px;
+}
+
+.md-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.7);
+  display: block;
+}
+
+.md-rating-badge {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 14px;
+  justify-content: center;
+  background: rgba(245,197,24,0.1);
+  border: 1px solid rgba(245,197,24,0.25);
+  border-radius: 12px;
+  padding: 10px 16px;
+}
+
+.md-rating-star { font-size: 1.1rem; }
+.md-rating-num  { font-size: 1.6rem; font-weight: 900; color: #f5c518; }
+.md-rating-max  { font-size: 0.85rem; color: rgba(240,242,248,0.45); }
+
+/* ── Info panel ─────────────────────────────────────────────── */
+.md-info {
+  flex: 1;
+  min-width: 0;
+  padding-top: 8px;
+}
+
+.md-lang-year {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.md-lang {
+  background: rgba(229,9,20,0.18);
+  border: 1px solid rgba(229,9,20,0.35);
+  color: #ff8a96;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.md-year {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(240,242,248,0.6);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.md-title {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 18px;
+  line-height: 1.1;
+}
+
+/* ── Genre tags ─────────────────────────────────────────────── */
+.md-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.md-genre-tag {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(240,242,248,0.75);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.md-hero-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.md-hero-meta-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 14px 18px;
+}
+
+.md-hero-meta-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(240,242,248,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.md-hero-meta-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f0f2f8;
+  line-height: 1.4;
+}
+
+/* ── Rating bar ─────────────────────────────────────────────── */
+.md-rating-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.md-rating-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  max-width: 280px;
+}
+
+.md-rating-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f5c518, #ff8c00);
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.md-rating-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f5c518;
+  white-space: nowrap;
+}
+
+/* ── Description ────────────────────────────────────────────── */
+.md-description {
+  font-size: 1rem;
+  color: rgba(240,242,248,0.72);
+  line-height: 1.8;
+  margin: 0 0 28px;
+  max-width: 680px;
+}
+
+/* ── Info badges ────────────────────────────────────────────── */
+.md-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.md-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 12px 18px;
+  min-width: 100px;
+}
+
+.md-badge-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(240,242,248,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.md-badge-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f0f2f8;
+}
+
+/* ── TMDb button ────────────────────────────────────────────── */
+.md-tmdb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff2a44, #c40812);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(229,9,20,0.38);
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.md-tmdb-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(229,9,20,0.52);
+}
+
+/* ── Body sections ──────────────────────────────────────────── */
+.md-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.md-section {}
+
+.md-section-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Cast ───────────────────────────────────────────────────── */
+.md-cast-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.md-cast-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 80px;
+}
+
+.md-cast-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(229,9,20,0.3), rgba(120,0,200,0.3));
+  border: 2px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.md-cast-name {
+  font-size: 0.75rem;
+  color: rgba(240,242,248,0.65);
+  text-align: center;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+/* ── Keywords ───────────────────────────────────────────────── */
+.md-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.md-keyword {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(240,242,248,0.6);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+/* ── Details table ──────────────────────────────────────────── */
+.md-details-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.md-detail-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.15s;
+}
+
+.md-detail-row:last-child { border-bottom: none; }
+.md-detail-row:hover { background: rgba(255,255,255,0.03); }
+
+.md-detail-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(240,242,248,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-top: 1px;
+}
+
+.md-detail-value {
+  font-size: 0.92rem;
+  color: rgba(240,242,248,0.82);
+  line-height: 1.5;
+}
+
+/* ── Hover overlay on card ──────────────────────────────────── */
+.movie-card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  z-index: 3;
+}
+
+.movie-card:hover .movie-card-hover-overlay {
+  opacity: 1;
+}
+
+.movie-card-view-btn {
+  background: linear-gradient(135deg, #ff2a44, #c40812);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(229,9,20,0.5);
+  pointer-events: none;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .md-back-wrap { padding: 16px 20px 0; }
+  .md-hero { padding: 28px 20px 40px; }
+  .md-hero-content { flex-direction: column; gap: 28px; }
+  .md-poster-wrap { width: 160px; margin: 0 auto; }
+  .md-body { padding: 0 20px 60px; }
+  .md-detail-row { grid-template-columns: 110px 1fr; }
+}
+
+/* ── Similar Movies ── */
+.md-similar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.md-similar-card {
+  background: #0f1120;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.md-similar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.md-similar-card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+}
+
+.md-similar-info {
+  padding: 0.5rem 0.6rem 0.7rem;
+}
+
+.md-similar-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #f0f2f8;
+  margin: 0 0 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.md-similar-meta {
+  font-size: 0.72rem;
+  color: #e50914;
+  margin: 0 0 0.15rem;
+}
+
+.md-similar-genre {
+  font-size: 0.68rem;
+  color: #888;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

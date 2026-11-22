@@ -1,0 +1,293 @@
+﻿/* ═══════════════════════════════════════════════════════════════
+   LOGIN PAGE  —  split layout: left brand panel + right form
+   ═══════════════════════════════════════════════════════════════ */
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #050508;
+}
+
+/* ── Left decorative panel ──────────────────────────────────── */
+.login-left {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #0d0f1a 0%, #1a0a10 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 56px;
+  min-height: 100vh;
+}
+
+.login-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 55% at 30% 25%, rgba(229,9,20,0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 65% at 80% 80%, rgba(120,0,200,0.13) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* decorative film-strip lines */
+.login-left::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(229,9,20,0.3) 30%,
+    rgba(229,9,20,0.5) 50%,
+    rgba(229,9,20,0.3) 70%,
+    transparent 100%);
+}
+
+.login-left-content {
+  position: relative;
+  z-index: 1;
+  max-width: 380px;
+}
+
+.login-left-brand {
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  color: #e50914;
+  text-shadow: 0 0 60px rgba(229,9,20,0.55);
+  margin-bottom: 36px;
+  display: block;
+}
+
+.login-left h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 14px;
+  line-height: 1.2;
+}
+
+.login-left > .login-left-content > p {
+  color: rgba(240,242,248,0.52);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin: 0 0 36px;
+}
+
+.login-left-features {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: rgba(240,242,248,0.72);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.login-feature-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(229,9,20,0.14);
+  border: 1px solid rgba(229,9,20,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ── Right form panel ───────────────────────────────────────── */
+.login-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 56px;
+  background: #07080e;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.login-form-wrap {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ── Form header ────────────────────────────────────────────── */
+.login-form-header {
+  margin-bottom: 36px;
+  text-align: left;
+}
+
+.login-form-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 10px;
+  line-height: 1.1;
+}
+
+.login-form-header p {
+  color: rgba(240,242,248,0.5);
+  font-size: 0.92rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Fields ─────────────────────────────────────────────────── */
+.form-field {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(240,242,248,0.65);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255,255,255,0.09);
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.form-field input:focus {
+  border-color: rgba(229,9,20,0.65);
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 0 0 3px rgba(229,9,20,0.1);
+}
+
+.form-field input::placeholder {
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── Password toggle ────────────────────────────────────────── */
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  padding-right: 50px;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.35);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.toggle-password:hover {
+  color: rgba(255,255,255,0.75);
+}
+
+/* ── Submit button ──────────────────────────────────────────── */
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff2a44 0%, #c40812 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(229,9,20,0.38);
+  transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(229,9,20,0.52);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Footer link ────────────────────────────────────────────── */
+.login-footer {
+  margin-top: 24px;
+  text-align: center;
+  color: rgba(240,242,248,0.45);
+  font-size: 0.88rem;
+}
+
+.login-footer a {
+  color: #ff6b7a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 820px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+  .login-left {
+    display: none;
+  }
+  .login-right {
+    padding: 56px 32px;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-right {
+    padding: 48px 24px;
+  }
+}
+
+/* ── Error box (shared with Register) ──────────────────────── */
+.error-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(229,9,20,0.08);
+  border: 1px solid rgba(229,9,20,0.28);
+  color: #ff9090;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  text-align: left;
+}
